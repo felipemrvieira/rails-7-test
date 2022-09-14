@@ -1,8 +1,13 @@
 pipeline {
-    agent { docker { image 'ruby:3.1.2-alpine' } }
+    agent none
     stages {
         stage('build') {
             steps {
+                sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
                 sh 'ruby --version'
             }
         }
